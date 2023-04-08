@@ -1,3 +1,4 @@
+
 name: Terraform AWS Workflow
 
 on:
@@ -8,10 +9,6 @@ on:
         description: 'TF File Path'     
         required: false
         default: 'aws_samples/create_ec2'
-#       task:
-#         description: 'apply or destroy'     
-#         required: false
-#         default: 'apply'
   push:
     branches: [ Master ]
   pull_request:
@@ -48,14 +45,13 @@ jobs:
         
         echo "** Running Terraform Plan**"
         terraform plan
-
-        echo "** Running Terraform Apply**"
-        terraform apply -auto-approve
         
-#      working-directory: ${{ github.event.inputs.tfpath }}
-#     - name: Terraform Destroy
-#       run: |
-#         echo "** Running Terraform Destroy**"
-#         terraform plan -destroy
-# #        terraform destroy -auto-approve
-#       working-directory: ${{ github.event.inputs.tfpath }}
+#        echo "** Running Terraform Apply**"
+#        terraform apply -auto-approve
+      working-directory: ${{ github.event.inputs.tfpath }}
+    - name: Terraform Destroy
+      run: |
+        echo "** Running Terraform Destroy**"
+        terraform plan -destroy
+#        terraform destroy -auto-approve
+      working-directory: ${{ github.event.inputs.tfpath }}
