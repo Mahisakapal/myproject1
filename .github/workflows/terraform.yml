@@ -101,12 +101,12 @@ jobs:
       run: terraform plan -input=false
       
     # Generates an execution apply for Terraform
-    - name: Terraform Plan
+    - name: Terraform apply
       if:  github.event.inputs.tfpath == 'apply'
       run: terraform apply -auto-approve -input=false
       
     # Generates an execution destroy for Terraform
-    - name: Terraform Plan
+    - name: Terraform destroy
       if:  github.event.inputs.tfpath == 'destroy'
       run: terraform destroy -auto-approve -input=false
 
