@@ -53,5 +53,5 @@ jobs:
       run: |
         echo "** Running Terraform Destroy**"
         terraform plan -destroy
-#        terraform destroy -auto-approve
+        terraform destroy -auto-approve
       working-directory: ${{ github.event.inputs.tfpath }}
