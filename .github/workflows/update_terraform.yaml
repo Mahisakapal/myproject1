@@ -9,9 +9,9 @@ on:
         required: false
         default: 'aws_samples/create_ec2'
   push:
-    branches: [ main ]
+    branches: [ Master ]
   pull_request:
-    branches: [ main ]
+    branches: [ Master ]
 
 jobs:
   tf_code_check:
