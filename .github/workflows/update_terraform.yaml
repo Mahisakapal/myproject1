@@ -8,10 +8,10 @@ on:
         description: 'TF File Path'     
         required: false
         default: 'aws_samples/create_ec2'
-      task:
-        description: 'apply or destroy'     
-        required: false
-        default: 'apply'
+#       task:
+#         description: 'apply or destroy'     
+#         required: false
+#         default: 'apply'
   push:
     branches: [ Master ]
   pull_request:
@@ -46,8 +46,6 @@ jobs:
         echo "** Running Terraform Validate**"
         terraform validate
         
-        echo "** Running Terraform Plan**"
-        terraform plan
         echo "** Running Terraform Plan**"
         terraform plan
 
