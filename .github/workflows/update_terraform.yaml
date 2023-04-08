@@ -9,6 +9,10 @@ on:
         description: 'TF File Path'     
         required: false
         default: 'aws_samples/create_ec2'
+      task:
+        description: 'apply or destroy'     
+        required: false
+        default: 'apply'
   push:
     branches: [ Master ]
   pull_request:
@@ -34,6 +38,7 @@ jobs:
       uses: hashicorp/setup-terraform@v2.0.2
 
     - name: Terraform init, plan and apply
+      if: ${{ github.event.inputs.task == 'apply' }}
       run: |
         echo `pwd`
         echo "tfpath ${{ github.event.inputs.tfpath }}"
@@ -46,10 +51,10 @@ jobs:
         echo "** Running Terraform Plan**"
         terraform apply -auto-approve
         
-#        echo "** Running Terraform Apply**"
-#        terraform apply -auto-approve
+
       working-directory: ${{ github.event.inputs.tfpath }}
     - name: Terraform Destroy
+      if: ${{ github.event.inputs.task == 'destroy' }}
       run: |
         echo "** Running Terraform Destroy**"
         terraform plan -destroy
