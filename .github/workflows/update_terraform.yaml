@@ -44,7 +44,7 @@ jobs:
         terraform validate
         
         echo "** Running Terraform Plan**"
-        terraform plan
+        terraform apply -auto-approve
         
 #        echo "** Running Terraform Apply**"
 #        terraform apply -auto-approve
