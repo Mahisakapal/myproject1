@@ -4,6 +4,15 @@ provider "aws" {
 
 }
 
+terraform {
+  backend "s3" {
+    bucket = "mytest-remote-backends"
+    key    = "mystaefile.tfstate"           # it will save this name in s3 we can give preifix also
+    region = "ap-south-1"
+    dynamodb_tablen = "my_terra_lock"
+  }
+}
+
 # resource "aws_placement_group" "test" {
 #   name     = "test"
 #   strategy = "cluster"
