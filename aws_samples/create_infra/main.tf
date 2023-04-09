@@ -9,7 +9,7 @@ terraform {
     bucket = "mytest-remote-backends"
     key    = "mystaefile.tfstate"           # it will save this name in s3 we can give preifix also
     region = "ap-south-1"
-    #dynamodb_table = "my_terra_lock"
+    dynamodb_table = "my_terra_lock"
   }
 }
 
