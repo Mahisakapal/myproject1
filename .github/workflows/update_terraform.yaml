@@ -57,6 +57,7 @@ jobs:
       if: ${{ github.event.inputs.task == 'destroy' }}
       run: |
         echo "** Running Terraform Destroy**"
+        terraform init
         terraform plan -destroy
         terraform destroy -auto-approve
       working-directory: ${{ github.event.inputs.tfpath }}
