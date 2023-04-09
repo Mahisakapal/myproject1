@@ -7,16 +7,16 @@ on:
     inputs:
       tfpath:
         description: 'TF File Path'     
-        required: false
+        required: True
         default: 'aws_samples/create_ec2'
       task:
         description: 'apply or destroy'     
-        required: false
+        required: True
         default: 'apply'
-  push:
-    branches: [ Master ]
-  pull_request:
-    branches: [ Master ]
+#   push:
+#     branches: [ Master ]
+#   pull_request:
+#     branches: [ Master ]
 
 jobs:
   tf_code_check:
